@@ -2,12 +2,12 @@
     <link rel="stylesheet" href="~/css/index-styles.css" />
 }
 
-
-<img src="~/imgs/AddButton.png" 
-        alt="Create Graph" 
-        style="height: 100px; margin-top: 4.5rem; margin-left: 1rem;"
-        class="fixed-top text-left "/>
-
+<a asp-controller="Graph" asp-action="CreateGraph">
+    <img src="~/imgs/AddButton.png" 
+         alt="Create Graph" 
+         style="height: 100px; margin-top: 4.5rem; margin-left: 1rem;" 
+         class="fixed-top text-left">
+</a>
 
 <!--This code is just to work out how the cards are going to be laid out.-->
 <!--The invisible class is so this "test" code inst visible until we need to tweak it more later-->
