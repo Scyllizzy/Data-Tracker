@@ -18,6 +18,11 @@
         <form asp-action="CreateGraph">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="GraphName" class="control-label text-light">Graph Name</label>
+                <input asp-for="GraphName" class="form-control" />
+                <span asp-validation-for="GraphName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="GraphType" class="control-label text-light">Graph Type</label>
                 <input asp-for="GraphType" class="form-control" />
                 <span asp-validation-for="GraphType" class="text-danger"></span>
@@ -27,9 +32,8 @@
                 <input asp-for="GraphData" class="form-control" />
                 <span asp-validation-for="GraphData" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+
+            <canvas id="myChart"></canvas>
 
             <label asp-for="GraphType" class="control-label text-light">Graph Type</label>
             <div class="dropdown">
@@ -43,9 +47,38 @@
                     <a class="dropdown-item" href="#">Pie</a>
                 </div>
             </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
         </form>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    Chart.defaults.global.defaultFontColor = 'white';
+    var chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'bar',
+
+        // The data for our dataset
+        data: {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'My First dataset',
+                backgroundColor: 'rgb(255, 99, 132)',
+                borderColor: 'rgb(255, 99, 132)',
+                data: [0, 10, 5, 2, 20, 30, 45]
+            }]
+        },
+
+        // Configuration options go here
+        options: {}
+    });
+</script>
 
 <script src="~/js/site.js"></script>
 
