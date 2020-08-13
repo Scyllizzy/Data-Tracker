@@ -7,6 +7,8 @@ namespace DataTracker.Models
 {
     public class Graph
     {
+        public string GraphName { get; set; }
+
         /// <summary>
         /// Represents the type of graph to be visualized
         /// </summary>
