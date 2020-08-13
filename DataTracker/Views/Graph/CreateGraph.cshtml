@@ -30,9 +30,24 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
+            <label asp-for="GraphType" class="control-label text-light">Graph Type</label>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bar
+                    <span class="caret"></span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Bar</a>
+                    <a class="dropdown-item" href="#">Line</a>
+                    <a class="dropdown-item" href="#">Pie</a>
+                </div>
+            </div>
         </form>
     </div>
 </div>
+
+<script src="~/js/site.js"></script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
