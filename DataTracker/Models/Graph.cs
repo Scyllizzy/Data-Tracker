@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,8 @@ namespace DataTracker.Models
 {
     public class Graph
     {
+        [Required]
+        [Display(Name = "Graph Name")]
         public string GraphName { get; set; }
 
         /// <summary>
@@ -25,8 +28,10 @@ namespace DataTracker.Models
             Time, Money, Measurement, Custom
         }
 
+        [Display(Name = "Graph Type")]
         public Type GraphType { get; set; }
 
+        [Display(Name = "Graph Data")]
         public Data GraphData { get; set; }
     }
 }
