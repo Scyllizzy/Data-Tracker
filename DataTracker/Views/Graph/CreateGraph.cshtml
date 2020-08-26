@@ -32,12 +32,12 @@
             <canvas id="myChart"></canvas>
 
             <label asp-for="GraphType" class="control-label text-light">Graph Type</label>
-            <div class="dropdown">
+            <div class="dropdown" id="graph_type">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Bar
                     <span class="caret"></span>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div class="dropdown-menu" id="select1" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item">Bar</a>
                     <a class="dropdown-item">Line</a>
                     <a class="dropdown-item">Pie</a>
@@ -48,32 +48,39 @@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
+
+            <h1 class="output"></h1>
         </form>
     </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    Chart.defaults.global.defaultFontColor = 'white';
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'bar',
+    function drawChart(chartType){
+        var ctx = document.getElementById('myChart').getContext('2d');
+        Chart.defaults.global.defaultFontColor = 'white';
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: chartType,
 
-        // The data for our dataset
-        data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [{
-                label: 'Graph Name',
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45]
-            }]
-        },
+            // The data for our dataset
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                datasets: [{
+                    label: 'Graph Name',
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45]
+                }]
+            },
 
-        // Configuration options go here
-        options: {}
-    });
+            // Configuration options go here
+            options: {}
+        });
+    }
+
+    // This IS why the chart is always a bar chart when you .destroy the pe-existing one
+    drawChart('bar');
 </script>
 
 <script src="~/js/site.js"></script>

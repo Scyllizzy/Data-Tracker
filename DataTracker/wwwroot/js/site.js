@@ -5,5 +5,12 @@
 $(".dropdown-menu a").click(function () {
     $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
     $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+
+    var linkClicked = this;
+    var chartType = linkClicked.innerText.toLowerCase();
+    // Trying to get rid of the old chart before creating a new one 
+    //(I think.destroy is what we want https://www.chartjs.org/docs/latest/developers/api.html#destroy)
+    chart.destroy(); 
+    drawChart(chartType);
 });
 
