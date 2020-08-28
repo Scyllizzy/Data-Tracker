@@ -56,10 +56,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script>
+    var chart;
+
     function drawChart(chartType){
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.defaultFontColor = 'white';
-        var chart = new Chart(ctx, {
+        chart = new Chart(ctx, {
             // The type of chart we want to create
             type: chartType,
 
